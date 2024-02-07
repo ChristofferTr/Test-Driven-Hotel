@@ -1,0 +1,16 @@
+﻿@page
+@model Test_Driven_Hotel.Pages.BookingConfirmationModel
+
+<h2>Booking Confirmation</h2>
+
+<p>Thank you for booking a room with us, @Model.Booking.GuestName!</p>
+
+<p>Your booking details:</p>
+<ul>
+    <li>Guest Name: @Model.Booking.GuestName</li>
+    <li>Room Type: @Model.SelectedRoom.Type</li>
+    <li>Check-in Date: @Model.Booking.CheckInDate.ToShortDateString()</li>
+    <li>Check-out Date: @Model.Booking.CheckOutDate.ToShortDateString()</li>
+</ul>
+
+<p>We look forward to hosting you!</p>

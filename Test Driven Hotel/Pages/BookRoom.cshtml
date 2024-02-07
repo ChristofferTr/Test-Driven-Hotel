@@ -1,0 +1,36 @@
+﻿@page
+@model Test_Driven_Hotel.Pages.BookRoomModel
+
+<h2>Book a Room</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label for="guestName">Guest Name</label>
+        <input type="text" class="form-control" id="guestName" name="GuestName" required>
+    </div>
+    <div class="form-group">
+        <label for="roomId">Room</label>
+        <select class="form-control" id="roomId" name="RoomId">
+            <option value="">Select a Room</option>
+            @foreach (var room in Model.AvailableRooms)
+            {
+                <option value="@room.Id">@room.Type</option>
+            }
+        </select>
+    </div>
+    <div>
+        @if (Model.SelectedRoom != null)
+        {
+            <img src="@Model.SelectedRoom.ImageUrl" alt="Selected Room Image" style="max-width: 200px; max-height: 150px;">
+        }
+    </div>
+    <div class="form-group">
+        <label for="checkInDate">Check-in Date</label>
+        <input type="date" class="form-control" id="checkInDate" name="CheckInDate" required>
+    </div>
+    <div class="form-group">
+        <label for="checkOutDate">Check-out Date</label>
+        <input type="date" class="form-control" id="checkOutDate" name="CheckOutDate" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Book Now</button>
+</form>
